@@ -62,7 +62,6 @@
   "scripts": {
     "start": "http-server",
     "install": "jspm install -y",
-    "test": "mocha test.js",
     "build": "jspm bundle index.coffee! build.js --minify --inject --skip-source-maps"
   }
 }
