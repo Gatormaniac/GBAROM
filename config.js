@@ -34,11 +34,11 @@ System.config({
       "github:matthewbauer/window@0.0.3/window",
       "github:matthewbauer/document@0.0.4/document",
       "npm:core-js@1.2.1/library/fn/object/create",
-      "github:webcomponents/webcomponentsjs@0.7.14",
       "github:mohayonao/web-audio-api-shim@0.3.0",
+      "github:webcomponents/webcomponentsjs@0.7.14",
       "npm:core-js@1.2.1/library/modules/$",
-      "github:webcomponents/webcomponentsjs@0.7.14/webcomponents-lite",
-      "github:mohayonao/web-audio-api-shim@0.3.0/build/web-audio-api-shim"
+      "github:mohayonao/web-audio-api-shim@0.3.0/build/web-audio-api-shim",
+      "github:webcomponents/webcomponentsjs@0.7.14/webcomponents-lite"
     ]
   },
 

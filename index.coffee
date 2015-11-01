@@ -56,6 +56,7 @@ play = (rom, extension) ->
 
 loadData = (filename, buffer) ->
   draghint.classList.add 'hidden'
+  ga 'send', 'event', 'play', filename if ga?
   [..., extension] = filename.split '.'
   rom = null
   if extension is 'zip'
