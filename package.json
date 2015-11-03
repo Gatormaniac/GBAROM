@@ -49,6 +49,7 @@
     }
   },
   "devDependencies": {
+    "ava": "^0.3.0",
     "chai": "^3.2.0",
     "chai-as-promised": "^5.1.0",
     "coffee-script": "^1.9.3",
@@ -62,6 +63,7 @@
   "scripts": {
     "start": "http-server",
     "install": "jspm install -y",
-    "build": "jspm bundle index.coffee! build.js --minify --inject --skip-source-maps"
+    "build": "jspm bundle index.coffee! build.js --minify --inject --skip-source-maps",
+    "test": "npm run build && ava"
   }
 }
