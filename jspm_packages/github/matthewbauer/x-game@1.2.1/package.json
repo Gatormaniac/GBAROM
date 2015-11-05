@@ -52,8 +52,8 @@
   "scripts": {
     "start": "http-server",
     "install": "jspm install -y",
-    "test": "mocha test.js",
-    "build": "jspm bundle index.coffee!"
+    "test": "npm run build",
+    "build": "jspm bundle-sfx x-retro.js"
   },
   "keywords": [
     "web-components"
