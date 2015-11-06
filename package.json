@@ -65,7 +65,7 @@
   "scripts": {
     "start": "http-server",
     "install": "jspm install -y",
-    "build": "jspm bundle index.coffee! + snes9x-next + picodrive + nestopia + vecx + vba-next + gambatte + gw build.js --inject --skip-source-maps",
+    "build": "jspm bundle index.coffee! build.js --inject --skip-source-maps",
     "test": "npm run build && ava"
   }
 }
