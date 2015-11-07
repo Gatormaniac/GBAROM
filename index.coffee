@@ -9,6 +9,9 @@ utils = require './utils'
 draghint = document.getElementById 'draghint'
 chooser = document.getElementById 'chooser'
 
+ga 'create', 'UA-6667993-15' if ga?
+ga 'send', 'pageview' if ga?
+
 if window.url and window.filename
   xhr = new XMLHttpRequest()
   xhr.open 'GET', window.url, true
@@ -49,6 +52,7 @@ play = (rom, extension) ->
       System.import settings.extensions[extension]
       localForage.getItem retro.md5
     ]).then ([core, save]) ->
+      ga 'send', 'event', 'play', extension if ga?
       stop() if retro.running
       retro.core = core
       core.load_game rom if rom
@@ -68,7 +72,7 @@ play = (rom, extension) ->
 
 loadData = (filename, buffer) ->
   draghint.classList.add 'hidden'
-  ga 'send', 'event', 'play', filename if ga?
+  ga 'send', 'event', 'load', filename if ga?
   extension = utils.getExtension filename
   rom = null
   if extension is 'zip'
@@ -87,6 +91,7 @@ loadData = (filename, buffer) ->
     location.reload() # hacky but a fix
 
 load = (file) ->
+  ga 'send', 'event', 'file' if ga?
   return if not file instanceof Blob
   draghint.classList.add 'hidden'
   reader = new FileReader()
@@ -95,6 +100,7 @@ load = (file) ->
   reader.readAsArrayBuffer file
 
 window.addEventListener 'drop', (event) ->
+  ga 'send', 'event', 'drop' if ga?
   return if draghint.classList.contains 'hidden'
   event.preventDefault()
   draghint.classList.remove 'hover'
