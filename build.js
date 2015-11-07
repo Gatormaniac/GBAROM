@@ -12181,6 +12181,12 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
   utils = req('utils.js');
   draghint = document.getElementById('draghint');
   chooser = document.getElementById('chooser');
+  if (typeof ga !== "undefined" && ga !== null) {
+    ga('create', 'UA-6667993-15');
+  }
+  if (typeof ga !== "undefined" && ga !== null) {
+    ga('send', 'pageview');
+  }
   if (window.url && window.filename) {
     xhr = new XMLHttpRequest();
     xhr.open('GET', window.url, true);
@@ -12229,6 +12235,9 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
         var core,
             save;
         core = arg[0], save = arg[1];
+        if (typeof ga !== "undefined" && ga !== null) {
+          ga('send', 'event', 'play', extension);
+        }
         if (retro.running) {
           stop();
         }
@@ -12268,7 +12277,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
         zip;
     draghint.classList.add('hidden');
     if (typeof ga !== "undefined" && ga !== null) {
-      ga('send', 'event', 'play', filename);
+      ga('send', 'event', 'load', filename);
     }
     extension = utils.getExtension(filename);
     rom = null;
@@ -12294,6 +12303,9 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
   };
   load = function(file) {
     var reader;
+    if (typeof ga !== "undefined" && ga !== null) {
+      ga('send', 'event', 'file');
+    }
     if (!file instanceof Blob) {
       return;
     }
@@ -12305,6 +12317,9 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     return reader.readAsArrayBuffer(file);
   };
   window.addEventListener('drop', function(event) {
+    if (typeof ga !== "undefined" && ga !== null) {
+      ga('send', 'event', 'drop');
+    }
     if (draghint.classList.contains('hidden')) {
       return;
     }
