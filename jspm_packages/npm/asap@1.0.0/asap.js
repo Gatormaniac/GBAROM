@@ -79,4 +79,4 @@
   }
   ;
   module.exports = asap;
-})(require("process"));
+})(require('process'));

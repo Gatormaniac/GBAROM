@@ -136,7 +136,8 @@ System.registerDynamic("settings.json!github:systemjs/plugin-json@0.1.0", [], tr
       "220": "8",
       "221": "6",
       "222": "7"
-    }
+    },
+    "urlPrefix": "https://crossorigin.me/"
   };
   global.define = __define;
   return module.exports;
@@ -12162,12 +12163,16 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
       autosaver,
       chooser,
       draghint,
+      gain,
       load,
       loadData,
       localForage,
+      menu,
       onkey,
       play,
+      ref,
       retro,
+      savechooser,
       settings,
       sparkmd5,
       stop,
@@ -12180,7 +12185,13 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
   settings = req('settings.json!github:systemjs/plugin-json@0.1.0');
   utils = req('utils.js');
   draghint = document.getElementById('draghint');
-  chooser = document.getElementById('chooser');
+  if ((location.search != null) && location.search.substr(1)) {
+    window.url = location.search.substr(1);
+    if (window.url.startsWith('http')) {
+      window.url = settings.urlPrefix + window.url;
+    }
+    ref = location.search.substr(1).split('/'), window.filename = ref[ref.length - 1];
+  }
   if (typeof ga !== "undefined" && ga !== null) {
     ga('create', 'UA-6667993-15');
   }
@@ -12203,7 +12214,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
   if (navigator.serviceWorker) {
     navigator.serviceWorker.register('worker.js');
   }
-  retro = document.createElement('canvas', 'x-game');
+  window.retro = retro = document.createElement('canvas', 'x-game');
   document.body.appendChild(retro);
   onkey = function(event) {
     var base,
@@ -12225,12 +12236,14 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     window.removeEventListener('keydown', onkey);
     return window.clearInterval(autosaver);
   };
+  gain = null;
   play = function(rom, extension) {
     return Promise.resolve().then(function() {
       if (!rom) {
         throw new Error('no rom!');
       }
       retro.md5 = sparkmd5.ArrayBuffer.hash(rom);
+      retro.name = settings.extensions[extension];
       return Promise.all([System["import"](settings.extensions[extension]), localForage.getItem(retro.md5)]).then(function(arg) {
         var core,
             save;
@@ -12241,6 +12254,8 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
         if (retro.running) {
           stop();
         }
+        document.getElementById('core-name').textContent = settings.extensions[extension];
+        document.getElementById('system-info').textContent = JSON.stringify(core.get_system_info(), null, '  ');
         retro.core = core;
         if (rom) {
           core.load_game(rom);
@@ -12258,6 +12273,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
           }
         });
         retro.player.inputs = [{buttons: {}}];
+        document.getElementById('av-info').textContent = JSON.stringify(retro.player.av_info, null, '  ');
         autosaver = setInterval(function() {
           return localForage.setItem(retro.md5, new Uint8Array(core.serialize()));
         }, 1000);
@@ -12272,7 +12288,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
         file,
         i,
         len,
-        ref,
+        ref1,
         rom,
         zip;
     draghint.classList.add('hidden');
@@ -12283,9 +12299,9 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     rom = null;
     if (extension === 'zip') {
       zip = new JSZip(buffer);
-      ref = zip.file(/.*/);
-      for (i = 0, len = ref.length; i < len; i++) {
-        file = ref[i];
+      ref1 = zip.file(/.*/);
+      for (i = 0, len = ref1.length; i < len; i++) {
+        file = ref1[i];
         extension = utils.getExtension(file.name);
         if (settings.extensions[extension]) {
           rom = new Uint8Array(file.asArrayBuffer());
@@ -12340,18 +12356,85 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     draghint.classList.remove('hover');
     return false;
   });
+  window.addEventListener('focus', function() {
+    return draghint.classList.remove('hover');
+  });
+  menu = document.getElementById('menu');
+  window.addEventListener('contextmenu', function(event) {
+    if (draghint.classList.contains('hidden')) {
+      if (retro.classList.contains('hidden')) {
+        retro.start();
+      } else {
+        retro.stop();
+      }
+      retro.classList.toggle('hidden');
+      menu.classList.toggle('hidden');
+      return event.preventDefault();
+    }
+  });
+  window.resume = function() {
+    retro.classList.remove('hidden');
+    menu.classList.add('hidden');
+    return retro.start();
+  };
+  window.reset = function() {
+    retro.stop();
+    retro.core.reset();
+    return window.resume();
+  };
+  window.mute = function() {
+    if (retro.player.destination.gain.value === 0) {
+      retro.player.destination.gain.value = 1;
+      document.getElementById('mute').textContent = 'mute';
+    } else {
+      retro.player.destination.gain.value = 0;
+      document.getElementById('mute').textContent = 'unmute';
+    }
+    return window.resume();
+  };
+  window.save = function() {
+    var a,
+        blob,
+        url;
+    a = document.createElement('a');
+    document.body.appendChild(a);
+    a.classList.add('hidden');
+    blob = new Blob([new Uint8Array(retro.core.serialize())], {type: 'application/octet-binary'});
+    url = URL.createObjectURL(blob);
+    a.href = url;
+    a.download = retro.md5 + '.' + retro.name + '.sav';
+    a.click();
+    return URL.revokeObjectURL(url);
+  };
+  savechooser = document.getElementById('savechooser');
+  savechooser.addEventListener('change', function() {
+    var file,
+        reader;
+    file = this.files[0];
+    if (!file instanceof Blob) {
+      return;
+    }
+    draghint.classList.add('hidden');
+    reader = new FileReader();
+    reader.addEventListener('load', function(event) {
+      retro.core.unserialize(new Uint8Array(reader.result));
+      return window.resume();
+    });
+    return reader.readAsArrayBuffer(file);
+  });
+  window.load = function() {
+    return savechooser.click();
+  };
+  chooser = document.getElementById('chooser');
+  chooser.addEventListener('change', function() {
+    draghint.classList.remove('hover');
+    return load(this.files[0]);
+  });
   window.addEventListener('click', function(event) {
     if (!draghint.classList.contains('hidden')) {
       draghint.classList.add('hover');
       return chooser.click();
     }
-  });
-  window.addEventListener('focus', function() {
-    return draghint.classList.remove('hover');
-  });
-  chooser.addEventListener('change', function() {
-    draghint.classList.remove('hover');
-    return load(this.files[0]);
   });
   global.define = __define;
   return module.exports;
