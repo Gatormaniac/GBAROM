@@ -15,31 +15,31 @@ System.config({
     "build.js": [
       "index.coffee!github:forresto/system-coffee@0.1.2",
       "github:satazor/sparkmd5@1.0.1",
-      "npm:localforage@1.3.0",
       "github:stuk/jszip@2.5.0",
+      "npm:localforage@1.3.0",
       "utils.js",
       "github:satazor/sparkmd5@1.0.1/spark-md5",
       "npm:localforage@1.3.0/dist/localforage",
       "github:stuk/jszip@2.5.0/dist/jszip",
-      "github:jspm/nodelibs-process@0.1.2",
       "settings.json!github:systemjs/plugin-json@0.1.0",
-      "github:matthewbauer/x-game@1.2.1",
+      "github:jspm/nodelibs-process@0.1.2",
+      "github:matthewbauer/x-game@1.2.2",
       "github:jspm/nodelibs-process@0.1.2/index",
-      "github:matthewbauer/x-game@1.2.1/x-retro",
+      "github:matthewbauer/x-game@1.2.2/x-retro",
       "npm:process@0.11.2",
       "github:matthewbauer/window@0.0.3",
       "github:matthewbauer/document@0.0.4",
-      "github:matthewbauer/x-game@1.2.1/player.coffee!github:forresto/system-coffee@0.1.2",
+      "github:matthewbauer/x-game@1.2.2/player.coffee!github:forresto/system-coffee@0.1.2",
       "npm:babel-runtime@5.8.29/core-js/object/create",
       "npm:process@0.11.2/browser",
       "github:matthewbauer/window@0.0.3/window",
-      "npm:core-js@1.2.5/library/fn/object/create",
       "github:matthewbauer/document@0.0.4/document",
+      "npm:core-js@1.2.5/library/fn/object/create",
       "github:mohayonao/web-audio-api-shim@0.3.0",
-      "npm:core-js@1.2.5/library/modules/$",
       "github:webcomponents/webcomponentsjs@0.7.16",
-      "github:webcomponents/webcomponentsjs@0.7.16/webcomponents-lite",
-      "github:mohayonao/web-audio-api-shim@0.3.0/build/web-audio-api-shim"
+      "npm:core-js@1.2.5/library/modules/$",
+      "github:mohayonao/web-audio-api-shim@0.3.0/build/web-audio-api-shim",
+      "github:webcomponents/webcomponentsjs@0.7.16/webcomponents-lite"
     ]
   },
 
@@ -64,7 +64,7 @@ System.config({
     "vba-next": "npm:vba-next@1.0.0",
     "vecx": "npm:vecx@1.0.0",
     "window": "github:matthewbauer/window@0.0.3",
-    "x-game": "github:matthewbauer/x-game@1.2.1",
+    "x-game": "github:matthewbauer/x-game@1.2.2",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -87,7 +87,7 @@ System.config({
     "github:matthewbauer/window@0.0.3": {
       "web-audio-api-shim": "github:mohayonao/web-audio-api-shim@0.3.0"
     },
-    "github:matthewbauer/x-game@1.2.1": {
+    "github:matthewbauer/x-game@1.2.2": {
       "coffee": "github:forresto/system-coffee@0.1.2",
       "document": "github:matthewbauer/document@0.0.4",
       "jszip": "github:stuk/jszip@2.5.0",

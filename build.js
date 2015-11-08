@@ -143,7 +143,7 @@ System.registerDynamic("settings.json!github:systemjs/plugin-json@0.1.0", [], tr
   return module.exports;
 });
 
-System.registerDynamic("github:matthewbauer/x-game@1.2.1/player.coffee!github:forresto/system-coffee@0.1.2", ["github:matthewbauer/window@0.0.3"], true, function(req, exports, module) {
+System.registerDynamic("github:matthewbauer/x-game@1.2.2/player.coffee!github:forresto/system-coffee@0.1.2", ["github:matthewbauer/window@0.0.3"], true, function(req, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -165,7 +165,6 @@ System.registerDynamic("github:matthewbauer/x-game@1.2.1/player.coffee!github:fo
     Player.prototype.latency = 90;
     Player.prototype.bufferSize = 2480;
     function Player(gl, audio, inputs, core, game, save) {
-      var i;
       this.gl = gl;
       this.audio = audio;
       this.inputs = inputs;
@@ -193,6 +192,16 @@ System.registerDynamic("github:matthewbauer/x-game@1.2.1/player.coffee!github:fo
       this.core.set_input_poll(this.input_poll);
       this.core.init();
       this.av_info = this.core.get_system_av_info();
+      this.initAudio();
+      if (this.game != null) {
+        this.core.load_game(this.game);
+      }
+      if (this.save != null) {
+        this.core.unserialize(this.save);
+      }
+    }
+    Player.prototype.initAudio = function() {
+      var i;
       this.then = 0;
       this.sampleRate = this.av_info.timing.sample_rate;
       this.numBuffers = Math.floor(this.latency * this.sampleRate / (1000 * this.bufferSize));
@@ -207,13 +216,10 @@ System.registerDynamic("github:matthewbauer/x-game@1.2.1/player.coffee!github:fo
       }
       this.bufOffset = 0;
       this.bufIndex = 0;
-      if (this.game != null) {
-        this.core.load_game(this.game);
-      }
-      if (this.save != null) {
-        this.core.unserialize(this.save);
-      }
-    }
+      this.destination = this.audio.createGain();
+      this.destination.gain.value = 1;
+      return this.destination.connect(this.audio.destination);
+    };
     Player.prototype.initGL = function() {
       var buffer,
           fragmentShader,
@@ -359,7 +365,7 @@ System.registerDynamic("github:matthewbauer/x-game@1.2.1/player.coffee!github:fo
           this.buffers[this.bufIndex].endTime = startTime + this.buffers[this.bufIndex].duration;
           source = this.audio.createBufferSource();
           source.buffer = this.buffers[this.bufIndex];
-          source.connect(this.audio.destination);
+          source.connect(this.destination);
           source.start(startTime);
           this.bufIndex++;
           this.bufOffset = 0;
@@ -4033,7 +4039,7 @@ System.registerDynamic("npm:babel-runtime@5.8.29/core-js/object/create", ["npm:c
   return module.exports;
 });
 
-System.register('github:matthewbauer/x-game@1.2.1/x-retro', ['npm:babel-runtime@5.8.29/core-js/object/create', 'github:matthewbauer/window@0.0.3', 'github:matthewbauer/document@0.0.4', 'github:matthewbauer/x-game@1.2.1/player.coffee!github:forresto/system-coffee@0.1.2'], function (_export) {
+System.register('github:matthewbauer/x-game@1.2.2/x-retro', ['npm:babel-runtime@5.8.29/core-js/object/create', 'github:matthewbauer/window@0.0.3', 'github:matthewbauer/document@0.0.4', 'github:matthewbauer/x-game@1.2.2/player.coffee!github:forresto/system-coffee@0.1.2'], function (_export) {
   var _Object$create, AudioContext, HTMLCanvasElement, registerElement, Player, PlayerElement;
 
   return {
@@ -4044,8 +4050,8 @@ System.register('github:matthewbauer/x-game@1.2.1/x-retro', ['npm:babel-runtime@
       HTMLCanvasElement = _githubMatthewbauerWindow003.HTMLCanvasElement;
     }, function (_githubMatthewbauerDocument004) {
       registerElement = _githubMatthewbauerDocument004.registerElement;
-    }, function (_githubMatthewbauerXGame121PlayerCoffeeGithubForrestoSystemCoffee012) {
-      Player = _githubMatthewbauerXGame121PlayerCoffeeGithubForrestoSystemCoffee012['default'];
+    }, function (_githubMatthewbauerXGame122PlayerCoffeeGithubForrestoSystemCoffee012) {
+      Player = _githubMatthewbauerXGame122PlayerCoffeeGithubForrestoSystemCoffee012['default'];
     }],
     execute: function () {
       'use strict';
@@ -4125,18 +4131,18 @@ System.register('github:matthewbauer/x-game@1.2.1/x-retro', ['npm:babel-runtime@
   };
 });
 
-System.register("github:matthewbauer/x-game@1.2.1", ["github:matthewbauer/x-game@1.2.1/x-retro"], function (_export) {
+System.register("github:matthewbauer/x-game@1.2.2", ["github:matthewbauer/x-game@1.2.2/x-retro"], function (_export) {
   "use strict";
 
   return {
-    setters: [function (_githubMatthewbauerXGame121XRetro) {
+    setters: [function (_githubMatthewbauerXGame122XRetro) {
       var _exportObj = {};
 
-      for (var _key in _githubMatthewbauerXGame121XRetro) {
-        if (_key !== "default") _exportObj[_key] = _githubMatthewbauerXGame121XRetro[_key];
+      for (var _key in _githubMatthewbauerXGame122XRetro) {
+        if (_key !== "default") _exportObj[_key] = _githubMatthewbauerXGame122XRetro[_key];
       }
 
-      _exportObj["default"] = _githubMatthewbauerXGame121XRetro["default"];
+      _exportObj["default"] = _githubMatthewbauerXGame122XRetro["default"];
 
       _export(_exportObj);
     }],
@@ -12154,7 +12160,7 @@ define("github:satazor/sparkmd5@1.0.1", ["github:satazor/sparkmd5@1.0.1/spark-md
 
 _removeDefine();
 })();
-System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["github:satazor/sparkmd5@1.0.1", "github:stuk/jszip@2.5.0", "npm:localforage@1.3.0", "github:matthewbauer/x-game@1.2.1", "settings.json!github:systemjs/plugin-json@0.1.0", "utils.js"], true, function(req, exports, module) {
+System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["github:satazor/sparkmd5@1.0.1", "github:stuk/jszip@2.5.0", "npm:localforage@1.3.0", "github:matthewbauer/x-game@1.2.2", "settings.json!github:systemjs/plugin-json@0.1.0", "utils.js"], true, function(req, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -12181,7 +12187,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
   sparkmd5 = req('github:satazor/sparkmd5@1.0.1');
   JSZip = req('github:stuk/jszip@2.5.0');
   localForage = req('npm:localforage@1.3.0');
-  req('github:matthewbauer/x-game@1.2.1');
+  req('github:matthewbauer/x-game@1.2.2');
   settings = req('settings.json!github:systemjs/plugin-json@0.1.0');
   utils = req('utils.js');
   draghint = document.getElementById('draghint');
