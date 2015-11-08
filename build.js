@@ -12377,11 +12377,13 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     menu.classList.add('hidden');
     return retro.start();
   };
+  document.getElementById('resume').addEventListener('click', window.resume);
   window.reset = function() {
     retro.stop();
     retro.core.reset();
     return window.resume();
   };
+  document.getElementById('reset').addEventListener('click', window.reset);
   window.mute = function() {
     if (retro.player.destination.gain.value === 0) {
       retro.player.destination.gain.value = 1;
@@ -12392,6 +12394,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     }
     return window.resume();
   };
+  document.getElementById('mute').addEventListener('click', window.mute);
   window.save = function() {
     var a,
         blob,
@@ -12406,6 +12409,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     a.click();
     return URL.revokeObjectURL(url);
   };
+  document.getElementById('save').addEventListener('click', window.save);
   savechooser = document.getElementById('savechooser');
   savechooser.addEventListener('change', function() {
     var file,
@@ -12425,6 +12429,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
   window.load = function() {
     return savechooser.click();
   };
+  document.getElementById('load').addEventListener('click', window.load);
   chooser = document.getElementById('chooser');
   chooser.addEventListener('change', function() {
     draghint.classList.remove('hover');

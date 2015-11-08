@@ -15,8 +15,8 @@ System.config({
     "build.js": [
       "index.coffee!github:forresto/system-coffee@0.1.2",
       "github:satazor/sparkmd5@1.0.1",
-      "github:stuk/jszip@2.5.0",
       "npm:localforage@1.3.0",
+      "github:stuk/jszip@2.5.0",
       "utils.js",
       "github:satazor/sparkmd5@1.0.1/spark-md5",
       "npm:localforage@1.3.0/dist/localforage",
@@ -29,8 +29,8 @@ System.config({
       "npm:process@0.11.2",
       "github:matthewbauer/window@0.0.3",
       "github:matthewbauer/document@0.0.4",
-      "npm:babel-runtime@5.8.29/core-js/object/create",
       "github:matthewbauer/x-game@1.2.1/player.coffee!github:forresto/system-coffee@0.1.2",
+      "npm:babel-runtime@5.8.29/core-js/object/create",
       "npm:process@0.11.2/browser",
       "github:matthewbauer/window@0.0.3/window",
       "npm:core-js@1.2.5/library/fn/object/create",
@@ -38,8 +38,8 @@ System.config({
       "github:mohayonao/web-audio-api-shim@0.3.0",
       "npm:core-js@1.2.5/library/modules/$",
       "github:webcomponents/webcomponentsjs@0.7.16",
-      "github:mohayonao/web-audio-api-shim@0.3.0/build/web-audio-api-shim",
-      "github:webcomponents/webcomponentsjs@0.7.16/webcomponents-lite"
+      "github:webcomponents/webcomponentsjs@0.7.16/webcomponents-lite",
+      "github:mohayonao/web-audio-api-shim@0.3.0/build/web-audio-api-shim"
     ]
   },
 
