@@ -86,14 +86,14 @@ System.registerDynamic("settings.json!github:systemjs/plugin-json@0.1.0", [], tr
       "80": "3",
       "81": "0",
       "82": "5",
-      "83": "2",
+      "83": "1",
       "84": "1",
       "85": "2",
       "86": "3",
       "87": "0",
       "88": "2",
       "89": "3",
-      "90": "3",
+      "90": "0",
       "91": "4",
       "92": "5",
       "93": "8",
@@ -143,7 +143,7 @@ System.registerDynamic("settings.json!github:systemjs/plugin-json@0.1.0", [], tr
   return module.exports;
 });
 
-System.registerDynamic("github:matthewbauer/x-game@1.2.2/player.coffee!github:forresto/system-coffee@0.1.2", ["github:matthewbauer/window@0.0.3"], true, function(req, exports, module) {
+System.registerDynamic("github:matthewbauer/x-retro@1.2.4/player.coffee!github:forresto/system-coffee@0.1.2", ["github:matthewbauer/window@0.0.3"], true, function(req, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -4039,7 +4039,7 @@ System.registerDynamic("npm:babel-runtime@5.8.29/core-js/object/create", ["npm:c
   return module.exports;
 });
 
-System.register('github:matthewbauer/x-game@1.2.2/x-retro', ['npm:babel-runtime@5.8.29/core-js/object/create', 'github:matthewbauer/window@0.0.3', 'github:matthewbauer/document@0.0.4', 'github:matthewbauer/x-game@1.2.2/player.coffee!github:forresto/system-coffee@0.1.2'], function (_export) {
+System.register('github:matthewbauer/x-retro@1.2.4/x-retro', ['npm:babel-runtime@5.8.29/core-js/object/create', 'github:matthewbauer/window@0.0.3', 'github:matthewbauer/document@0.0.4', 'github:matthewbauer/x-retro@1.2.4/player.coffee!github:forresto/system-coffee@0.1.2'], function (_export) {
   var _Object$create, AudioContext, HTMLCanvasElement, registerElement, Player, PlayerElement;
 
   return {
@@ -4050,8 +4050,8 @@ System.register('github:matthewbauer/x-game@1.2.2/x-retro', ['npm:babel-runtime@
       HTMLCanvasElement = _githubMatthewbauerWindow003.HTMLCanvasElement;
     }, function (_githubMatthewbauerDocument004) {
       registerElement = _githubMatthewbauerDocument004.registerElement;
-    }, function (_githubMatthewbauerXGame122PlayerCoffeeGithubForrestoSystemCoffee012) {
-      Player = _githubMatthewbauerXGame122PlayerCoffeeGithubForrestoSystemCoffee012['default'];
+    }, function (_githubMatthewbauerXRetro124PlayerCoffeeGithubForrestoSystemCoffee012) {
+      Player = _githubMatthewbauerXRetro124PlayerCoffeeGithubForrestoSystemCoffee012['default'];
     }],
     execute: function () {
       'use strict';
@@ -4061,6 +4061,7 @@ System.register('github:matthewbauer/x-game@1.2.2/x-retro', ['npm:babel-runtime@
       PlayerElement.inputs = [];
       PlayerElement.attachedCallback = function () {
         this.style['image-rendering'] = 'pixelated';
+        this.style['background-color'] = 'black';
         if (this.hasAttribute('core')) {
           System['import'](this.getAttribute('core')).then((function (core) {
             this.core = core;
@@ -4123,7 +4124,7 @@ System.register('github:matthewbauer/x-game@1.2.2/x-retro', ['npm:babel-runtime@
         this.player.stop();
       };
 
-      _export('default', registerElement('x-game', {
+      _export('default', registerElement('x-retro', {
         prototype: PlayerElement,
         'extends': 'canvas'
       }));
@@ -4131,18 +4132,18 @@ System.register('github:matthewbauer/x-game@1.2.2/x-retro', ['npm:babel-runtime@
   };
 });
 
-System.register("github:matthewbauer/x-game@1.2.2", ["github:matthewbauer/x-game@1.2.2/x-retro"], function (_export) {
+System.register("github:matthewbauer/x-retro@1.2.4", ["github:matthewbauer/x-retro@1.2.4/x-retro"], function (_export) {
   "use strict";
 
   return {
-    setters: [function (_githubMatthewbauerXGame122XRetro) {
+    setters: [function (_githubMatthewbauerXRetro124XRetro) {
       var _exportObj = {};
 
-      for (var _key in _githubMatthewbauerXGame122XRetro) {
-        if (_key !== "default") _exportObj[_key] = _githubMatthewbauerXGame122XRetro[_key];
+      for (var _key in _githubMatthewbauerXRetro124XRetro) {
+        if (_key !== "default") _exportObj[_key] = _githubMatthewbauerXRetro124XRetro[_key];
       }
 
-      _exportObj["default"] = _githubMatthewbauerXGame122XRetro["default"];
+      _exportObj["default"] = _githubMatthewbauerXRetro124XRetro["default"];
 
       _export(_exportObj);
     }],
@@ -12160,7 +12161,7 @@ define("github:satazor/sparkmd5@1.0.1", ["github:satazor/sparkmd5@1.0.1/spark-md
 
 _removeDefine();
 })();
-System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["github:satazor/sparkmd5@1.0.1", "github:stuk/jszip@2.5.0", "npm:localforage@1.3.0", "github:matthewbauer/x-game@1.2.2", "settings.json!github:systemjs/plugin-json@0.1.0", "utils.js"], true, function(req, exports, module) {
+System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["github:satazor/sparkmd5@1.0.1", "github:stuk/jszip@2.5.0", "npm:localforage@1.3.0", "github:matthewbauer/x-retro@1.2.4", "settings.json!github:systemjs/plugin-json@0.1.0", "utils.js"], true, function(req, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -12169,9 +12170,10 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
       autosaver,
       chooser,
       draghint,
-      gain,
       load,
       loadData,
+      loadSave,
+      loading,
       localForage,
       menu,
       onkey,
@@ -12183,14 +12185,16 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
       sparkmd5,
       stop,
       utils,
+      writeSave,
       xhr;
   sparkmd5 = req('github:satazor/sparkmd5@1.0.1');
   JSZip = req('github:stuk/jszip@2.5.0');
   localForage = req('npm:localforage@1.3.0');
-  req('github:matthewbauer/x-game@1.2.2');
+  req('github:matthewbauer/x-retro@1.2.4');
   settings = req('settings.json!github:systemjs/plugin-json@0.1.0');
   utils = req('utils.js');
   draghint = document.getElementById('draghint');
+  loading = document.getElementById('loading');
   if ((location.search != null) && location.search.substr(1)) {
     window.url = location.search.substr(1);
     if (window.url.startsWith('http')) {
@@ -12215,12 +12219,13 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     };
     xhr.send();
   } else {
+    loading.classList.add('hidden');
     draghint.classList.remove('hidden');
   }
   if (navigator.serviceWorker) {
     navigator.serviceWorker.register('worker.js');
   }
-  window.retro = retro = document.createElement('canvas', 'x-game');
+  window.retro = retro = document.createElement('canvas', 'x-retro');
   document.body.appendChild(retro);
   onkey = function(event) {
     var base,
@@ -12242,7 +12247,24 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     window.removeEventListener('keydown', onkey);
     return window.clearInterval(autosaver);
   };
-  gain = null;
+  writeSave = function(retro) {
+    var error;
+    try {
+      return localForage.setItem(retro.md5, new Uint8Array(retro.core.serialize()));
+    } catch (_error) {
+      error = _error;
+      return console.log(error);
+    }
+  };
+  loadSave = function(retro) {
+    var error;
+    try {
+      return localForage.getItem(retro.md5);
+    } catch (_error) {
+      error = _error;
+      return console.log(error);
+    }
+  };
   play = function(rom, extension) {
     return Promise.resolve().then(function() {
       if (!rom) {
@@ -12250,13 +12272,14 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
       }
       retro.md5 = sparkmd5.ArrayBuffer.hash(rom);
       retro.name = settings.extensions[extension];
-      return Promise.all([System["import"](settings.extensions[extension]), localForage.getItem(retro.md5)]).then(function(arg) {
+      return Promise.all([System["import"](settings.extensions[extension]), loadSave(retro)]).then(function(arg) {
         var core,
             save;
         core = arg[0], save = arg[1];
         if (typeof ga !== "undefined" && ga !== null) {
           ga('send', 'event', 'play', extension);
         }
+        loading.classList.add('hidden');
         if (retro.running) {
           stop();
         }
@@ -12281,7 +12304,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
         retro.player.inputs = [{buttons: {}}];
         document.getElementById('av-info').textContent = JSON.stringify(retro.player.av_info, null, '  ');
         autosaver = setInterval(function() {
-          return localForage.setItem(retro.md5, new Uint8Array(core.serialize()));
+          return writeSave(retro);
         }, 1000);
         window.addEventListener('keydown', onkey);
         window.addEventListener('keyup', onkey);
@@ -12318,9 +12341,11 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
       rom = buffer;
     }
     return play(rom, extension)["catch"](function(e) {
+      loading.classList.add('hidden');
+      localForage.setItem(retro.md5, new Uint8Array());
       console.error(e);
       alert("that file couldn't be loaded");
-      return location.reload();
+      return location.search = "";
     });
   };
   load = function(file) {
@@ -12345,6 +12370,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     if (draghint.classList.contains('hidden')) {
       return;
     }
+    loading.classList.remove('hidden');
     event.preventDefault();
     draghint.classList.remove('hover');
     if (event.dataTransfer.files.length > 0) {
@@ -12439,6 +12465,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
   chooser = document.getElementById('chooser');
   chooser.addEventListener('change', function() {
     draghint.classList.remove('hover');
+    loading.classList.remove('hidden');
     return load(this.files[0]);
   });
   window.addEventListener('click', function(event) {

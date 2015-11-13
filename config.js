@@ -14,32 +14,32 @@ System.config({
   bundles: {
     "build.js": [
       "index.coffee!github:forresto/system-coffee@0.1.2",
-      "github:satazor/sparkmd5@1.0.1",
       "github:stuk/jszip@2.5.0",
+      "github:satazor/sparkmd5@1.0.1",
       "npm:localforage@1.3.0",
       "utils.js",
       "github:satazor/sparkmd5@1.0.1/spark-md5",
       "npm:localforage@1.3.0/dist/localforage",
       "github:stuk/jszip@2.5.0/dist/jszip",
-      "settings.json!github:systemjs/plugin-json@0.1.0",
       "github:jspm/nodelibs-process@0.1.2",
-      "github:matthewbauer/x-game@1.2.2",
+      "settings.json!github:systemjs/plugin-json@0.1.0",
+      "github:matthewbauer/x-retro@1.2.4",
       "github:jspm/nodelibs-process@0.1.2/index",
-      "github:matthewbauer/x-game@1.2.2/x-retro",
+      "github:matthewbauer/x-retro@1.2.4/x-retro",
       "npm:process@0.11.2",
       "github:matthewbauer/window@0.0.3",
       "github:matthewbauer/document@0.0.4",
-      "github:matthewbauer/x-game@1.2.2/player.coffee!github:forresto/system-coffee@0.1.2",
       "npm:babel-runtime@5.8.29/core-js/object/create",
+      "github:matthewbauer/x-retro@1.2.4/player.coffee!github:forresto/system-coffee@0.1.2",
       "npm:process@0.11.2/browser",
+      "npm:core-js@1.2.5/library/fn/object/create",
       "github:matthewbauer/window@0.0.3/window",
       "github:matthewbauer/document@0.0.4/document",
-      "npm:core-js@1.2.5/library/fn/object/create",
-      "github:mohayonao/web-audio-api-shim@0.3.0",
-      "github:webcomponents/webcomponentsjs@0.7.16",
       "npm:core-js@1.2.5/library/modules/$",
-      "github:mohayonao/web-audio-api-shim@0.3.0/build/web-audio-api-shim",
-      "github:webcomponents/webcomponentsjs@0.7.16/webcomponents-lite"
+      "github:webcomponents/webcomponentsjs@0.7.16",
+      "github:mohayonao/web-audio-api-shim@0.3.0",
+      "github:webcomponents/webcomponentsjs@0.7.16/webcomponents-lite",
+      "github:mohayonao/web-audio-api-shim@0.3.0/build/web-audio-api-shim"
     ]
   },
 
@@ -56,6 +56,7 @@ System.config({
     "localforage": "npm:localforage@1.3.0",
     "nestopia": "npm:nestopia@1.0.0",
     "picodrive": "npm:picodrive@1.0.0",
+    "quicknes": "npm:quicknes@1.0.3",
     "raw": "github:matthewbauer/plugin-raw@0.3.1",
     "snes9x-next": "npm:snes9x-next@1.0.0",
     "sparkmd5": "github:satazor/sparkmd5@1.0.1",
@@ -65,6 +66,7 @@ System.config({
     "vecx": "npm:vecx@1.0.0",
     "window": "github:matthewbauer/window@0.0.3",
     "x-game": "github:matthewbauer/x-game@1.2.2",
+    "x-retro": "github:matthewbauer/x-retro@1.2.4",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -88,6 +90,14 @@ System.config({
       "web-audio-api-shim": "github:mohayonao/web-audio-api-shim@0.3.0"
     },
     "github:matthewbauer/x-game@1.2.2": {
+      "coffee": "github:forresto/system-coffee@0.1.2",
+      "document": "github:matthewbauer/document@0.0.4",
+      "jszip": "github:stuk/jszip@2.5.0",
+      "raw": "github:matthewbauer/plugin-raw@0.3.1",
+      "sparkmd5": "github:satazor/sparkmd5@1.0.1",
+      "window": "github:matthewbauer/window@0.0.3"
+    },
+    "github:matthewbauer/x-retro@1.2.4": {
       "coffee": "github:forresto/system-coffee@0.1.2",
       "document": "github:matthewbauer/document@0.0.4",
       "jszip": "github:stuk/jszip@2.5.0",
