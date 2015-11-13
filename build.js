@@ -12233,6 +12233,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
   }
   window.retro = retro = document.createElement('canvas', 'x-retro');
   document.body.appendChild(retro);
+  retro.classList.add('hidden');
   onkey = function(event) {
     var base,
         name,
@@ -12285,7 +12286,6 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
         if (typeof ga !== "undefined" && ga !== null) {
           ga('send', 'event', 'play', extension);
         }
-        loading.classList.add('hidden');
         if (retro.running) {
           stop();
         }
@@ -12308,6 +12308,8 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
           }
         });
         retro.player.inputs = [{buttons: {}}];
+        loading.classList.add('hidden');
+        retro.classList.remove('hidden');
         document.getElementById('av-info').textContent = JSON.stringify(retro.player.av_info, null, '  ');
         autosaver = setInterval(function() {
           return writeSave(retro);
@@ -12348,12 +12350,11 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     }
     return play(rom, extension)["catch"](function(e) {
       loading.classList.add('hidden');
+      document.getElementById('error').classList.remove('hidden');
       if (retro.md5) {
         localForage.setItem(retro.md5, new Uint8Array());
       }
-      console.error(e);
-      alert("that file couldn't be loaded");
-      return location.search = "";
+      return console.error(e);
     });
   };
   load = function(file) {
