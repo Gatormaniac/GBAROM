@@ -218,3 +218,7 @@ window.addEventListener 'click', (event) ->
   if not draghint.classList.contains 'hidden'
     draghint.classList.add 'hover'
     chooser.click()
+
+window.addEventListener 'touchstart', (e) ->
+  e.preventDefault()
+

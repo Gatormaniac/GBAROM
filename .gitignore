@@ -1,3 +1,7 @@
 node_modules
 npm-debug.log
 *.sav
+config.js
+build.js
+build.js.map
+build.zip
