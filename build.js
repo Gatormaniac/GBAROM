@@ -12342,7 +12342,9 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     }
     return play(rom, extension)["catch"](function(e) {
       loading.classList.add('hidden');
-      localForage.setItem(retro.md5, new Uint8Array());
+      if (retro.md5) {
+        localForage.setItem(retro.md5, new Uint8Array());
+      }
       console.error(e);
       alert("that file couldn't be loaded");
       return location.search = "";
