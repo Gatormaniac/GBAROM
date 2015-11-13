@@ -18,28 +18,28 @@ System.config({
       "github:stuk/jszip@2.5.0",
       "npm:localforage@1.3.0",
       "utils.js",
-      "npm:localforage@1.3.0/dist/localforage",
       "github:satazor/sparkmd5@1.0.1/spark-md5",
+      "npm:localforage@1.3.0/dist/localforage",
       "github:stuk/jszip@2.5.0/dist/jszip",
       "github:jspm/nodelibs-process@0.1.2",
       "settings.json!github:systemjs/plugin-json@0.1.0",
-      "github:matthewbauer/x-retro@1.2.4",
+      "github:matthewbauer/x-retro@1.2.5",
       "github:jspm/nodelibs-process@0.1.2/index",
-      "github:matthewbauer/x-retro@1.2.4/x-retro",
+      "github:matthewbauer/x-retro@1.2.5/x-retro",
       "npm:process@0.11.2",
       "github:matthewbauer/window@0.0.3",
       "github:matthewbauer/document@0.0.4",
+      "github:matthewbauer/x-retro@1.2.5/player.coffee!github:forresto/system-coffee@0.1.2",
       "npm:babel-runtime@5.8.29/core-js/object/create",
-      "github:matthewbauer/x-retro@1.2.4/player.coffee!github:forresto/system-coffee@0.1.2",
       "npm:process@0.11.2/browser",
       "github:matthewbauer/window@0.0.3/window",
       "github:matthewbauer/document@0.0.4/document",
       "npm:core-js@1.2.5/library/fn/object/create",
-      "github:webcomponents/webcomponentsjs@0.7.16",
       "github:mohayonao/web-audio-api-shim@0.3.0",
+      "github:webcomponents/webcomponentsjs@0.7.17",
       "npm:core-js@1.2.5/library/modules/$",
-      "github:webcomponents/webcomponentsjs@0.7.16/webcomponents-lite",
-      "github:mohayonao/web-audio-api-shim@0.3.0/build/web-audio-api-shim"
+      "github:mohayonao/web-audio-api-shim@0.3.0/build/web-audio-api-shim",
+      "github:webcomponents/webcomponentsjs@0.7.17/webcomponents-lite"
     ]
   },
 
@@ -66,7 +66,7 @@ System.config({
     "vecx": "npm:vecx@1.0.0",
     "window": "github:matthewbauer/window@0.0.3",
     "x-game": "github:matthewbauer/x-game@1.2.2",
-    "x-retro": "github:matthewbauer/x-retro@1.2.4",
+    "x-retro": "github:matthewbauer/x-retro@1.2.5",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -80,7 +80,7 @@ System.config({
       "util": "npm:util@0.10.3"
     },
     "github:matthewbauer/document@0.0.4": {
-      "webcomponentsjs": "github:webcomponents/webcomponentsjs@0.7.16"
+      "webcomponentsjs": "github:webcomponents/webcomponentsjs@0.7.17"
     },
     "github:matthewbauer/plugin-raw@0.3.1": {
       "fetch": "github:github/fetch@0.9.0",
@@ -97,7 +97,7 @@ System.config({
       "sparkmd5": "github:satazor/sparkmd5@1.0.1",
       "window": "github:matthewbauer/window@0.0.3"
     },
-    "github:matthewbauer/x-retro@1.2.4": {
+    "github:matthewbauer/x-retro@1.2.5": {
       "coffee": "github:forresto/system-coffee@0.1.2",
       "document": "github:matthewbauer/document@0.0.4",
       "jszip": "github:stuk/jszip@2.5.0",

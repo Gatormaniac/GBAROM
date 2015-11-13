@@ -143,7 +143,7 @@ System.registerDynamic("settings.json!github:systemjs/plugin-json@0.1.0", [], tr
   return module.exports;
 });
 
-System.registerDynamic("github:matthewbauer/x-retro@1.2.4/player.coffee!github:forresto/system-coffee@0.1.2", ["github:matthewbauer/window@0.0.3"], true, function(req, exports, module) {
+System.registerDynamic("github:matthewbauer/x-retro@1.2.5/player.coffee!github:forresto/system-coffee@0.1.2", ["github:matthewbauer/window@0.0.3"], true, function(req, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -353,7 +353,7 @@ System.registerDynamic("github:matthewbauer/x-retro@1.2.4/player.coffee!github:f
         if (fill > frames) {
           fill = frames;
         }
-        if (this.bufOffset >= this.bufferSize) {
+        if (this.bufOffset + fill >= this.bufferSize) {
           if (this.bufIndex >= this.numBuffers - 1) {
             break;
           }
@@ -439,7 +439,7 @@ System.registerDynamic("github:matthewbauer/x-retro@1.2.4/player.coffee!github:f
   return module.exports;
 });
 
-System.registerDynamic("github:webcomponents/webcomponentsjs@0.7.16/webcomponents-lite", [], false, function(__require, __exports, __module) {
+System.registerDynamic("github:webcomponents/webcomponentsjs@0.7.17/webcomponents-lite", [], false, function(__require, __exports, __module) {
   var _retrieveGlobal = System.get("@@global-helpers").prepareGlobal(__module.id, null, null);
   (function() {
     (function() {
@@ -2507,11 +2507,17 @@ System.registerDynamic("github:webcomponents/webcomponentsjs@0.7.16/webcomponent
           return root;
         };
       }
+      function upgradeAll(doc) {
+        if (HTMLTemplateElement && HTMLTemplateElement.bootstrap) {
+          HTMLTemplateElement.bootstrap(doc);
+        }
+        addedNode(doc);
+      }
       scope.watchShadow = watchShadow;
       scope.upgradeDocumentTree = upgradeDocumentTree;
       scope.upgradeDocument = upgradeDocument;
       scope.upgradeSubtree = addedSubtree;
-      scope.upgradeAll = addedNode;
+      scope.upgradeAll = upgradeAll;
       scope.attached = attached;
       scope.takeRecords = takeRecords;
     });
@@ -2870,17 +2876,17 @@ System.registerDynamic("github:webcomponents/webcomponentsjs@0.7.16/webcomponent
   return _retrieveGlobal();
 });
 
-System.registerDynamic("github:webcomponents/webcomponentsjs@0.7.16", ["github:webcomponents/webcomponentsjs@0.7.16/webcomponents-lite"], true, function(req, exports, module) {
+System.registerDynamic("github:webcomponents/webcomponentsjs@0.7.17", ["github:webcomponents/webcomponentsjs@0.7.17/webcomponents-lite"], true, function(req, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  module.exports = req('github:webcomponents/webcomponentsjs@0.7.16/webcomponents-lite');
+  module.exports = req('github:webcomponents/webcomponentsjs@0.7.17/webcomponents-lite');
   global.define = __define;
   return module.exports;
 });
 
-System.register('github:matthewbauer/document@0.0.4/document', ['github:webcomponents/webcomponentsjs@0.7.16'], function (_export) {
+System.register('github:matthewbauer/document@0.0.4/document', ['github:webcomponents/webcomponentsjs@0.7.17'], function (_export) {
 	'use strict';
 
 	var __global, registerElement;
@@ -2892,7 +2898,7 @@ System.register('github:matthewbauer/document@0.0.4/document', ['github:webcompo
 	}
 
 	return {
-		setters: [function (_githubWebcomponentsWebcomponentsjs0716) {}],
+		setters: [function (_githubWebcomponentsWebcomponentsjs0717) {}],
 		execute: function () {
 			__global = undefined;
 
@@ -4039,7 +4045,7 @@ System.registerDynamic("npm:babel-runtime@5.8.29/core-js/object/create", ["npm:c
   return module.exports;
 });
 
-System.register('github:matthewbauer/x-retro@1.2.4/x-retro', ['npm:babel-runtime@5.8.29/core-js/object/create', 'github:matthewbauer/window@0.0.3', 'github:matthewbauer/document@0.0.4', 'github:matthewbauer/x-retro@1.2.4/player.coffee!github:forresto/system-coffee@0.1.2'], function (_export) {
+System.register('github:matthewbauer/x-retro@1.2.5/x-retro', ['npm:babel-runtime@5.8.29/core-js/object/create', 'github:matthewbauer/window@0.0.3', 'github:matthewbauer/document@0.0.4', 'github:matthewbauer/x-retro@1.2.5/player.coffee!github:forresto/system-coffee@0.1.2'], function (_export) {
   var _Object$create, AudioContext, HTMLCanvasElement, registerElement, Player, PlayerElement;
 
   return {
@@ -4050,8 +4056,8 @@ System.register('github:matthewbauer/x-retro@1.2.4/x-retro', ['npm:babel-runtime
       HTMLCanvasElement = _githubMatthewbauerWindow003.HTMLCanvasElement;
     }, function (_githubMatthewbauerDocument004) {
       registerElement = _githubMatthewbauerDocument004.registerElement;
-    }, function (_githubMatthewbauerXRetro124PlayerCoffeeGithubForrestoSystemCoffee012) {
-      Player = _githubMatthewbauerXRetro124PlayerCoffeeGithubForrestoSystemCoffee012['default'];
+    }, function (_githubMatthewbauerXRetro125PlayerCoffeeGithubForrestoSystemCoffee012) {
+      Player = _githubMatthewbauerXRetro125PlayerCoffeeGithubForrestoSystemCoffee012['default'];
     }],
     execute: function () {
       'use strict';
@@ -4132,18 +4138,18 @@ System.register('github:matthewbauer/x-retro@1.2.4/x-retro', ['npm:babel-runtime
   };
 });
 
-System.register("github:matthewbauer/x-retro@1.2.4", ["github:matthewbauer/x-retro@1.2.4/x-retro"], function (_export) {
+System.register("github:matthewbauer/x-retro@1.2.5", ["github:matthewbauer/x-retro@1.2.5/x-retro"], function (_export) {
   "use strict";
 
   return {
-    setters: [function (_githubMatthewbauerXRetro124XRetro) {
+    setters: [function (_githubMatthewbauerXRetro125XRetro) {
       var _exportObj = {};
 
-      for (var _key in _githubMatthewbauerXRetro124XRetro) {
-        if (_key !== "default") _exportObj[_key] = _githubMatthewbauerXRetro124XRetro[_key];
+      for (var _key in _githubMatthewbauerXRetro125XRetro) {
+        if (_key !== "default") _exportObj[_key] = _githubMatthewbauerXRetro125XRetro[_key];
       }
 
-      _exportObj["default"] = _githubMatthewbauerXRetro124XRetro["default"];
+      _exportObj["default"] = _githubMatthewbauerXRetro125XRetro["default"];
 
       _export(_exportObj);
     }],
@@ -12161,7 +12167,7 @@ define("github:satazor/sparkmd5@1.0.1", ["github:satazor/sparkmd5@1.0.1/spark-md
 
 _removeDefine();
 })();
-System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["github:satazor/sparkmd5@1.0.1", "github:stuk/jszip@2.5.0", "npm:localforage@1.3.0", "github:matthewbauer/x-retro@1.2.4", "settings.json!github:systemjs/plugin-json@0.1.0", "utils.js"], true, function(req, exports, module) {
+System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["github:satazor/sparkmd5@1.0.1", "github:stuk/jszip@2.5.0", "npm:localforage@1.3.0", "github:matthewbauer/x-retro@1.2.5", "settings.json!github:systemjs/plugin-json@0.1.0", "utils.js"], true, function(req, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -12190,7 +12196,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
   sparkmd5 = req('github:satazor/sparkmd5@1.0.1');
   JSZip = req('github:stuk/jszip@2.5.0');
   localForage = req('npm:localforage@1.3.0');
-  req('github:matthewbauer/x-retro@1.2.4');
+  req('github:matthewbauer/x-retro@1.2.5');
   settings = req('settings.json!github:systemjs/plugin-json@0.1.0');
   utils = req('utils.js');
   draghint = document.getElementById('draghint');
