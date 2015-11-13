@@ -12483,6 +12483,9 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
       return chooser.click();
     }
   });
+  window.addEventListener('touchstart', function(e) {
+    return e.preventDefault();
+  });
   global.define = __define;
   return module.exports;
 });

@@ -48,16 +48,6 @@
     "window": "github:matthewbauer/window@^0.0.3"
   },
   "github:stuk/jszip@2.5.0": {},
-  "npm:babel-runtime@5.8.34": {
-    "process": "github:jspm/nodelibs-process@^0.1.0"
-  },
-  "npm:babel-core@5.8.34": {},
-  "npm:core-js@1.2.6": {
-    "systemjs-json": "github:systemjs/plugin-json@^0.1.0",
-    "process": "github:jspm/nodelibs-process@^0.1.0",
-    "fs": "github:jspm/nodelibs-fs@^0.1.0",
-    "path": "github:jspm/nodelibs-path@^0.1.0"
-  },
   "github:jmcriffey/bower-traceur-runtime@0.0.91": {},
   "github:jmcriffey/bower-traceur@0.0.91": {},
   "npm:promise@5.0.0": {
@@ -97,5 +87,15 @@
   },
   "github:jspm/nodelibs-util@0.1.0": {
     "util": "npm:util@^0.10.3"
+  },
+  "npm:core-js@1.2.5": {
+    "systemjs-json": "github:systemjs/plugin-json@^0.1.0",
+    "process": "github:jspm/nodelibs-process@^0.1.0",
+    "fs": "github:jspm/nodelibs-fs@^0.1.0",
+    "path": "github:jspm/nodelibs-path@^0.1.0"
+  },
+  "npm:babel-core@5.8.33": {},
+  "npm:babel-runtime@5.8.29": {
+    "process": "github:jspm/nodelibs-process@^0.1.0"
   }
 }
