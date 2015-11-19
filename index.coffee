@@ -78,6 +78,9 @@ error = (e) ->
   loading.classList.add 'hidden'
   document.getElementById('error').classList.remove 'hidden'
   console.error e
+  ga 'send', 'exception',
+    exDescription: e.message,
+    exFatal: false
 
 writeSave = (retro) ->
   try
