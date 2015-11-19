@@ -15,8 +15,10 @@ if location.search? and location.search.substr(1)
     window.url = settings.urlPrefix + window.url
   [..., window.filename] = location.search.substr(1).split('/')
 
-ga 'create', 'UA-6667993-15' if ga?
-ga 'send', 'pageview' if ga?
+if ga?
+  ga 'create', 'UA-6667993-15', 'auto', appName: 'GPemu'
+  ga 'send', 'screenview', screenName: 'drag-and-drop'
+  ga 'send', 'timing', 'js', 'load', performance.now() if performance?
 
 if window.url and window.filename
   xhr = new XMLHttpRequest()
@@ -78,9 +80,7 @@ error = (e) ->
   loading.classList.add 'hidden'
   document.getElementById('error').classList.remove 'hidden'
   console.error e
-  ga 'send', 'exception',
-    exDescription: e.message,
-    exFatal: false
+  ga 'send', 'exception', exDescription: e.message if ga?
 
 writeSave = (retro) ->
   try
@@ -107,7 +107,9 @@ play = (rom, extension) ->
       loadSave retro
       System.import settings.overlays[retro.name] + 'index.json!' if settings.overlays[retro.name] and 'ontouchstart' in window
     ]).then ([core, save, _overlay]) ->
-      ga 'send', 'event', 'play', extension if ga?
+      if ga?
+        ga 'send', 'timing', 'js', 'load', performance.now() if performance?
+        ga 'send', 'screenview', screenName: 'play' if ga?
       createOverlay _overlay, settings.overlays[retro.name] if _overlay?
       document.getElementById('core-name').textContent = settings.extensions[extension]
       document.getElementById('system-info').textContent = JSON.stringify core.get_system_info(), null, '  '
@@ -132,7 +134,6 @@ play = (rom, extension) ->
 
 loadData = (filename, buffer) ->
   draghint.classList.add 'hidden'
-  ga 'send', 'event', 'load', filename if ga?
   extension = utils.getExtension filename
   rom = null
   if extension is 'zip'
@@ -148,7 +149,6 @@ loadData = (filename, buffer) ->
   .catch error
 
 load = (file) ->
-  ga 'send', 'event', 'file' if ga?
   return if not file instanceof Blob
   draghint.classList.add 'hidden'
   reader = new FileReader()
@@ -157,8 +157,8 @@ load = (file) ->
   reader.readAsArrayBuffer file
 
 window.addEventListener 'drop', (event) ->
-  ga 'send', 'event', 'drop' if ga?
   return if draghint.classList.contains 'hidden'
+  ga 'send', 'event', 'drop' if ga?
   loading.classList.remove 'hidden'
   event.preventDefault()
   draghint.classList.remove 'hover'
@@ -183,8 +183,10 @@ menu = document.getElementById 'menu'
 window.addEventListener 'contextmenu', (event) ->
   if draghint.classList.contains 'hidden'
     if retro.classList.contains 'hidden'
+      ga 'send', 'screenview', screenName: 'play' if ga?
       retro.start()
     else
+      ga 'send', 'screenview', screenName: 'settings' if ga?
       retro.stop()
     retro.classList.toggle 'hidden'
     overlay.classList.toggle 'hidden'
@@ -192,6 +194,7 @@ window.addEventListener 'contextmenu', (event) ->
     event.preventDefault()
 
 window.resume = ->
+  ga 'send', 'screenview', screenName: 'play' if ga?
   retro.classList.remove 'hidden'
   overlay.classList.toggle 'hidden'
   menu.classList.add 'hidden'
@@ -199,6 +202,7 @@ window.resume = ->
 document.getElementById('resume').addEventListener 'click', window.resume
 
 window.reset = ->
+  ga 'send', 'event', 'reset' if ga?
   retro.stop()
   retro.core.reset()
   window.resume()
@@ -206,15 +210,18 @@ document.getElementById('reset').addEventListener 'click', window.reset
 
 window.mute = ->
   if retro.player.destination.gain.value == 0
+    ga 'send', 'event', 'unmute' if ga?
     retro.player.destination.gain.value = 1
     document.getElementById('mute').textContent = 'mute'
   else
+    ga 'send', 'event', 'mute' if ga?
     retro.player.destination.gain.value = 0
     document.getElementById('mute').textContent = 'unmute'
   window.resume()
 document.getElementById('mute').addEventListener 'click', window.mute
 
 window.save = ->
+  ga 'send', 'event', 'save' if ga?
   a = document.createElement 'a'
   document.body.appendChild a
   a.classList.add 'hidden'
@@ -248,6 +255,7 @@ chooser.addEventListener 'change', ->
   load this.files[0]
 window.addEventListener 'click', (event) ->
   if not draghint.classList.contains 'hidden'
+    ga 'send', 'event', 'click' if ga?
     draghint.classList.add 'hover'
     chooser.click()
 

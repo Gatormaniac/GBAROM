@@ -1,5 +1,5 @@
 "bundle";
-System.registerDynamic("utils.js", [], true, function(req, exports, module) {
+System.registerDynamic("utils.js", [], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -14,7 +14,7 @@ System.registerDynamic("utils.js", [], true, function(req, exports, module) {
   return module.exports;
 });
 
-System.registerDynamic("settings.json!github:systemjs/plugin-json@0.1.0", [], true, function(req, exports, module) {
+System.registerDynamic("settings.json!github:systemjs/plugin-json@0.1.0", [], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -28,7 +28,7 @@ System.registerDynamic("settings.json!github:systemjs/plugin-json@0.1.0", [], tr
       "sfc": "snes9x-next",
       "swc": "snes9x-next",
       "gba": "vba-next",
-      "nes": "nestopia",
+      "nes": "quicknes",
       "sms": "picodrive",
       "gen": "picodrive",
       "smd": "picodrive",
@@ -36,6 +36,12 @@ System.registerDynamic("settings.json!github:systemjs/plugin-json@0.1.0", [], tr
       "32x": "picodrive",
       "mgw": "gw",
       "vec": "vecx"
+    },
+    "overlays": {
+      "gambatte": "./overlays/gamepads/gameboy/",
+      "vba-next": "./overlays/gamepads/gba/",
+      "snes9x-next": "./overlays/gamepads/snes/",
+      "nestopia": "./overlays/gamepads/nes/"
     },
     "keys": {
       "8": "8",
@@ -143,7 +149,7 @@ System.registerDynamic("settings.json!github:systemjs/plugin-json@0.1.0", [], tr
   return module.exports;
 });
 
-System.registerDynamic("github:matthewbauer/x-retro@1.2.5/player.coffee!github:forresto/system-coffee@0.1.2", ["github:matthewbauer/window@0.0.3"], true, function(req, exports, module) {
+System.registerDynamic("github:matthewbauer/x-retro@1.2.5/player.coffee!github:forresto/system-coffee@0.1.2", ["github:matthewbauer/window@0.0.3"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -156,8 +162,8 @@ System.registerDynamic("github:matthewbauer/x-retro@1.2.5/player.coffee!github:f
           return fn.apply(me, arguments);
         };
       };
-  requestAnimationFrame = req('github:matthewbauer/window@0.0.3').requestAnimationFrame;
-  cancelAnimationFrame = req('github:matthewbauer/window@0.0.3').cancelAnimationFrame;
+  requestAnimationFrame = $__require('github:matthewbauer/window@0.0.3').requestAnimationFrame;
+  cancelAnimationFrame = $__require('github:matthewbauer/window@0.0.3').cancelAnimationFrame;
   module.exports = Player = (function() {
     Player.prototype.update = false;
     Player.prototype.overscan = false;
@@ -2876,12 +2882,12 @@ System.registerDynamic("github:webcomponents/webcomponentsjs@0.7.17/webcomponent
   return _retrieveGlobal();
 });
 
-System.registerDynamic("github:webcomponents/webcomponentsjs@0.7.17", ["github:webcomponents/webcomponentsjs@0.7.17/webcomponents-lite"], true, function(req, exports, module) {
+System.registerDynamic("github:webcomponents/webcomponentsjs@0.7.17", ["github:webcomponents/webcomponentsjs@0.7.17/webcomponents-lite"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  module.exports = req('github:webcomponents/webcomponentsjs@0.7.17/webcomponents-lite');
+  module.exports = $__require('github:webcomponents/webcomponentsjs@0.7.17/webcomponents-lite');
   global.define = __define;
   return module.exports;
 });
@@ -3668,12 +3674,12 @@ System.registerDynamic("github:mohayonao/web-audio-api-shim@0.3.0/build/web-audi
   return _retrieveGlobal();
 });
 
-System.registerDynamic("github:mohayonao/web-audio-api-shim@0.3.0", ["github:mohayonao/web-audio-api-shim@0.3.0/build/web-audio-api-shim"], true, function(req, exports, module) {
+System.registerDynamic("github:mohayonao/web-audio-api-shim@0.3.0", ["github:mohayonao/web-audio-api-shim@0.3.0/build/web-audio-api-shim"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  module.exports = req('github:mohayonao/web-audio-api-shim@0.3.0/build/web-audio-api-shim');
+  module.exports = $__require('github:mohayonao/web-audio-api-shim@0.3.0/build/web-audio-api-shim');
   global.define = __define;
   return module.exports;
 });
@@ -3997,7 +4003,7 @@ System.register("github:matthewbauer/window@0.0.3", ["github:matthewbauer/window
   };
 });
 
-System.registerDynamic("npm:core-js@1.2.5/library/modules/$", [], true, function(req, exports, module) {
+System.registerDynamic("npm:core-js@1.2.5/library/modules/$", [], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -4019,12 +4025,12 @@ System.registerDynamic("npm:core-js@1.2.5/library/modules/$", [], true, function
   return module.exports;
 });
 
-System.registerDynamic("npm:core-js@1.2.5/library/fn/object/create", ["npm:core-js@1.2.5/library/modules/$"], true, function(req, exports, module) {
+System.registerDynamic("npm:core-js@1.2.5/library/fn/object/create", ["npm:core-js@1.2.5/library/modules/$"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  var $ = req('npm:core-js@1.2.5/library/modules/$');
+  var $ = $__require('npm:core-js@1.2.5/library/modules/$');
   module.exports = function create(P, D) {
     return $.create(P, D);
   };
@@ -4032,13 +4038,13 @@ System.registerDynamic("npm:core-js@1.2.5/library/fn/object/create", ["npm:core-
   return module.exports;
 });
 
-System.registerDynamic("npm:babel-runtime@5.8.29/core-js/object/create", ["npm:core-js@1.2.5/library/fn/object/create"], true, function(req, exports, module) {
+System.registerDynamic("npm:babel-runtime@5.8.29/core-js/object/create", ["npm:core-js@1.2.5/library/fn/object/create"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
   module.exports = {
-    "default": req('npm:core-js@1.2.5/library/fn/object/create'),
+    "default": $__require('npm:core-js@1.2.5/library/fn/object/create'),
     __esModule: true
   };
   global.define = __define;
@@ -4157,7 +4163,7 @@ System.register("github:matthewbauer/x-retro@1.2.5", ["github:matthewbauer/x-ret
   };
 });
 
-System.registerDynamic("npm:process@0.11.2/browser", [], true, function(req, exports, module) {
+System.registerDynamic("npm:process@0.11.2/browser", [], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -4249,37 +4255,37 @@ System.registerDynamic("npm:process@0.11.2/browser", [], true, function(req, exp
   return module.exports;
 });
 
-System.registerDynamic("npm:process@0.11.2", ["npm:process@0.11.2/browser"], true, function(req, exports, module) {
+System.registerDynamic("npm:process@0.11.2", ["npm:process@0.11.2/browser"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  module.exports = req('npm:process@0.11.2/browser');
+  module.exports = $__require('npm:process@0.11.2/browser');
   global.define = __define;
   return module.exports;
 });
 
-System.registerDynamic("github:jspm/nodelibs-process@0.1.2/index", ["npm:process@0.11.2"], true, function(req, exports, module) {
+System.registerDynamic("github:jspm/nodelibs-process@0.1.2/index", ["npm:process@0.11.2"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  module.exports = System._nodeRequire ? process : req('npm:process@0.11.2');
+  module.exports = System._nodeRequire ? process : $__require('npm:process@0.11.2');
   global.define = __define;
   return module.exports;
 });
 
-System.registerDynamic("github:jspm/nodelibs-process@0.1.2", ["github:jspm/nodelibs-process@0.1.2/index"], true, function(req, exports, module) {
+System.registerDynamic("github:jspm/nodelibs-process@0.1.2", ["github:jspm/nodelibs-process@0.1.2/index"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  module.exports = req('github:jspm/nodelibs-process@0.1.2/index');
+  module.exports = $__require('github:jspm/nodelibs-process@0.1.2/index');
   global.define = __define;
   return module.exports;
 });
 
-System.registerDynamic("npm:localforage@1.3.0/dist/localforage", ["github:jspm/nodelibs-process@0.1.2"], true, function(req, exports, module) {
+System.registerDynamic("npm:localforage@1.3.0/dist/localforage", ["github:jspm/nodelibs-process@0.1.2"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -4289,7 +4295,7 @@ System.registerDynamic("npm:localforage@1.3.0/dist/localforage", ["github:jspm/n
     (function() {
       var define,
           requireModule,
-          req,
+          $__require,
           requirejs;
       (function() {
         var registry = {},
@@ -4300,7 +4306,7 @@ System.registerDynamic("npm:localforage@1.3.0/dist/localforage", ["github:jspm/n
             callback: callback
           };
         };
-        requirejs = req = requireModule = function(name) {
+        requirejs = $__require = requireModule = function(name) {
           requirejs._eak_seen = registry;
           if (seen[name]) {
             return seen[name];
@@ -6190,17 +6196,17 @@ System.registerDynamic("npm:localforage@1.3.0/dist/localforage", ["github:jspm/n
       }]);
     });
     ;
-  })(req('github:jspm/nodelibs-process@0.1.2'));
+  })($__require('github:jspm/nodelibs-process@0.1.2'));
   global.define = __define;
   return module.exports;
 });
 
-System.registerDynamic("npm:localforage@1.3.0", ["npm:localforage@1.3.0/dist/localforage"], true, function(req, exports, module) {
+System.registerDynamic("npm:localforage@1.3.0", ["npm:localforage@1.3.0/dist/localforage"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
   global.define = undefined;
-  module.exports = req('npm:localforage@1.3.0/dist/localforage');
+  module.exports = $__require('npm:localforage@1.3.0/dist/localforage');
   global.define = __define;
   return module.exports;
 });
@@ -12167,7 +12173,7 @@ define("github:satazor/sparkmd5@1.0.1", ["github:satazor/sparkmd5@1.0.1/spark-md
 
 _removeDefine();
 })();
-System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["github:satazor/sparkmd5@1.0.1", "github:stuk/jszip@2.5.0", "npm:localforage@1.3.0", "github:matthewbauer/x-retro@1.2.5", "settings.json!github:systemjs/plugin-json@0.1.0", "utils.js"], true, function(req, exports, module) {
+System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["github:satazor/sparkmd5@1.0.1", "github:stuk/jszip@2.5.0", "npm:localforage@1.3.0", "github:matthewbauer/x-retro@1.2.5", "settings.json!github:systemjs/plugin-json@0.1.0", "utils.js"], true, function($__require, exports, module) {
   ;
   var global = this,
       __define = global.define;
@@ -12175,7 +12181,9 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
   var JSZip,
       autosaver,
       chooser,
+      createOverlay,
       draghint,
+      error,
       load,
       loadData,
       loadSave,
@@ -12189,16 +12197,23 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
       savechooser,
       settings,
       sparkmd5,
-      stop,
       utils,
       writeSave,
-      xhr;
-  sparkmd5 = req('github:satazor/sparkmd5@1.0.1');
-  JSZip = req('github:stuk/jszip@2.5.0');
-  localForage = req('npm:localforage@1.3.0');
-  req('github:matthewbauer/x-retro@1.2.5');
-  settings = req('settings.json!github:systemjs/plugin-json@0.1.0');
-  utils = req('utils.js');
+      xhr,
+      indexOf = [].indexOf || function(item) {
+        for (var i = 0,
+            l = this.length; i < l; i++) {
+          if (i in this && this[i] === item)
+            return i;
+        }
+        return -1;
+      };
+  sparkmd5 = $__require('github:satazor/sparkmd5@1.0.1');
+  JSZip = $__require('github:stuk/jszip@2.5.0');
+  localForage = $__require('npm:localforage@1.3.0');
+  $__require('github:matthewbauer/x-retro@1.2.5');
+  settings = $__require('settings.json!github:systemjs/plugin-json@0.1.0');
+  utils = $__require('utils.js');
   draghint = document.getElementById('draghint');
   loading = document.getElementById('loading');
   if ((location.search != null) && location.search.substr(1)) {
@@ -12209,10 +12224,11 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     ref = location.search.substr(1).split('/'), window.filename = ref[ref.length - 1];
   }
   if (typeof ga !== "undefined" && ga !== null) {
-    ga('create', 'UA-6667993-15');
-  }
-  if (typeof ga !== "undefined" && ga !== null) {
-    ga('send', 'pageview');
+    ga('create', 'UA-6667993-15', 'auto', {appName: 'GPemu'});
+    ga('send', 'screenview', {screenName: 'drag-and-drop'});
+    if (typeof performance !== "undefined" && performance !== null) {
+      ga('send', 'timing', 'js', 'load', performance.now());
+    }
   }
   if (window.url && window.filename) {
     xhr = new XMLHttpRequest();
@@ -12231,9 +12247,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
   if (navigator.serviceWorker) {
     navigator.serviceWorker.register('worker.js');
   }
-  window.retro = retro = document.createElement('canvas', 'x-retro');
-  document.body.appendChild(retro);
-  retro.classList.add('hidden');
+  retro = null;
   onkey = function(event) {
     var base,
         name,
@@ -12248,28 +12262,74 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     }
   };
   autosaver = 0;
-  stop = function() {
-    retro.stop();
-    window.removeEventListener('keyup', onkey);
-    window.removeEventListener('keydown', onkey);
-    return window.clearInterval(autosaver);
+  createOverlay = function(buttons, prefix) {
+    return buttons.forEach(function(button) {
+      var el,
+          press;
+      el = null;
+      if (button.src) {
+        el = document.createElement('img');
+        el.setAttribute('src', prefix + button.src);
+      } else {
+        el = document.createElement('div');
+      }
+      el.style['z-index'] = 1;
+      el.style.position = 'absolute';
+      el.style.transform = 'translate(-50%, -50%)';
+      el.style.left = 100 * button.x + '%';
+      el.style.top = 100 * button.y + '%';
+      el.style.width = 100 * button.width + '%';
+      el.style.height = 100 * button.height + '%';
+      if (button.circle) {
+        el.style['border-radius'] = '100%';
+      }
+      if (button.id != null) {
+        el.style['z-index'] = 2;
+        press = function(event) {
+          var base,
+              name;
+          if (retro.player) {
+            if ((base = retro.player.inputs[0].buttons)[name = button.id] == null) {
+              base[name] = {};
+            }
+            retro.player.inputs[0].buttons[button.id].pressed = event.type === 'mousedown' || event.type === 'touchstart';
+            return event.preventDefault();
+          }
+        };
+        el.addEventListener('mousedown', press);
+        el.addEventListener('mousemove', press);
+        el.addEventListener('mouseup', press);
+        el.addEventListener('touchstart', press);
+        el.addEventListener('touchmove', press);
+        el.addEventListener('touchend', press);
+      }
+      return document.getElementById('overlay').appendChild(el);
+    });
+  };
+  error = function(e) {
+    loading.classList.add('hidden');
+    document.getElementById('error').classList.remove('hidden');
+    console.error(e);
+    if (typeof ga !== "undefined" && ga !== null) {
+      return ga('send', 'exception', {exDescription: e.message});
+    }
   };
   writeSave = function(retro) {
-    var error;
+    var err;
     try {
       return localForage.setItem(retro.md5, new Uint8Array(retro.core.serialize()));
     } catch (_error) {
-      error = _error;
-      return console.log(error);
+      err = _error;
+      return error(err);
     }
   };
   loadSave = function(retro) {
-    var error;
+    var err;
     try {
       return localForage.getItem(retro.md5);
     } catch (_error) {
-      error = _error;
-      return console.log(error);
+      err = _error;
+      return error(err);
     }
   };
   play = function(rom, extension) {
@@ -12277,24 +12337,30 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
       if (!rom) {
         throw new Error('no rom!');
       }
+      window.retro = retro = document.createElement('canvas', 'x-retro');
+      document.body.appendChild(retro);
       retro.md5 = sparkmd5.ArrayBuffer.hash(rom);
       retro.name = settings.extensions[extension];
-      return Promise.all([System["import"](settings.extensions[extension]), loadSave(retro)]).then(function(arg) {
-        var core,
+      return Promise.all([System["import"](settings.extensions[extension]), loadSave(retro), settings.overlays[retro.name] && indexOf.call(window, 'ontouchstart') >= 0 ? System["import"](settings.overlays[retro.name] + 'index.json!') : void 0]).then(function(arg) {
+        var _overlay,
+            core,
             save;
-        core = arg[0], save = arg[1];
+        core = arg[0], save = arg[1], _overlay = arg[2];
         if (typeof ga !== "undefined" && ga !== null) {
-          ga('send', 'event', 'play', extension);
+          if (typeof performance !== "undefined" && performance !== null) {
+            ga('send', 'timing', 'js', 'load', performance.now());
+          }
+          if (typeof ga !== "undefined" && ga !== null) {
+            ga('send', 'screenview', {screenName: 'play'});
+          }
         }
-        if (retro.running) {
-          stop();
+        if (_overlay != null) {
+          createOverlay(_overlay, settings.overlays[retro.name]);
         }
         document.getElementById('core-name').textContent = settings.extensions[extension];
         document.getElementById('system-info').textContent = JSON.stringify(core.get_system_info(), null, '  ');
         retro.core = core;
-        if (rom) {
-          core.load_game(rom);
-        }
+        retro.game = rom;
         if (save != null) {
           core.unserialize(new Uint8Array(save));
         }
@@ -12309,7 +12375,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
         });
         retro.player.inputs = [{buttons: {}}];
         loading.classList.add('hidden');
-        retro.classList.remove('hidden');
+        overlay.classList.remove('hidden');
         document.getElementById('av-info').textContent = JSON.stringify(retro.player.av_info, null, '  ');
         autosaver = setInterval(function() {
           return writeSave(retro);
@@ -12329,9 +12395,6 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
         rom,
         zip;
     draghint.classList.add('hidden');
-    if (typeof ga !== "undefined" && ga !== null) {
-      ga('send', 'event', 'load', filename);
-    }
     extension = utils.getExtension(filename);
     rom = null;
     if (extension === 'zip') {
@@ -12348,20 +12411,10 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     } else if (settings.extensions[extension]) {
       rom = buffer;
     }
-    return play(rom, extension)["catch"](function(e) {
-      loading.classList.add('hidden');
-      document.getElementById('error').classList.remove('hidden');
-      if (retro.md5) {
-        localForage.setItem(retro.md5, new Uint8Array());
-      }
-      return console.error(e);
-    });
+    return play(rom, extension)["catch"](error);
   };
   load = function(file) {
     var reader;
-    if (typeof ga !== "undefined" && ga !== null) {
-      ga('send', 'event', 'file');
-    }
     if (!file instanceof Blob) {
       return;
     }
@@ -12373,11 +12426,11 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     return reader.readAsArrayBuffer(file);
   };
   window.addEventListener('drop', function(event) {
-    if (typeof ga !== "undefined" && ga !== null) {
-      ga('send', 'event', 'drop');
-    }
     if (draghint.classList.contains('hidden')) {
       return;
+    }
+    if (typeof ga !== "undefined" && ga !== null) {
+      ga('send', 'event', 'drop');
     }
     loading.classList.remove('hidden');
     event.preventDefault();
@@ -12404,22 +12457,36 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
   window.addEventListener('contextmenu', function(event) {
     if (draghint.classList.contains('hidden')) {
       if (retro.classList.contains('hidden')) {
+        if (typeof ga !== "undefined" && ga !== null) {
+          ga('send', 'screenview', {screenName: 'play'});
+        }
         retro.start();
       } else {
+        if (typeof ga !== "undefined" && ga !== null) {
+          ga('send', 'screenview', {screenName: 'settings'});
+        }
         retro.stop();
       }
       retro.classList.toggle('hidden');
+      overlay.classList.toggle('hidden');
       menu.classList.toggle('hidden');
       return event.preventDefault();
     }
   });
   window.resume = function() {
+    if (typeof ga !== "undefined" && ga !== null) {
+      ga('send', 'screenview', {screenName: 'play'});
+    }
     retro.classList.remove('hidden');
+    overlay.classList.toggle('hidden');
     menu.classList.add('hidden');
     return retro.start();
   };
   document.getElementById('resume').addEventListener('click', window.resume);
   window.reset = function() {
+    if (typeof ga !== "undefined" && ga !== null) {
+      ga('send', 'event', 'reset');
+    }
     retro.stop();
     retro.core.reset();
     return window.resume();
@@ -12427,9 +12494,15 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
   document.getElementById('reset').addEventListener('click', window.reset);
   window.mute = function() {
     if (retro.player.destination.gain.value === 0) {
+      if (typeof ga !== "undefined" && ga !== null) {
+        ga('send', 'event', 'unmute');
+      }
       retro.player.destination.gain.value = 1;
       document.getElementById('mute').textContent = 'mute';
     } else {
+      if (typeof ga !== "undefined" && ga !== null) {
+        ga('send', 'event', 'mute');
+      }
       retro.player.destination.gain.value = 0;
       document.getElementById('mute').textContent = 'unmute';
     }
@@ -12440,6 +12513,9 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
     var a,
         blob,
         url;
+    if (typeof ga !== "undefined" && ga !== null) {
+      ga('send', 'event', 'save');
+    }
     a = document.createElement('a');
     document.body.appendChild(a);
     a.classList.add('hidden');
@@ -12479,6 +12555,9 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
   });
   window.addEventListener('click', function(event) {
     if (!draghint.classList.contains('hidden')) {
+      if (typeof ga !== "undefined" && ga !== null) {
+        ga('send', 'event', 'click');
+      }
       draghint.classList.add('hover');
       return chooser.click();
     }
@@ -12486,6 +12565,7 @@ System.registerDynamic("index.coffee!github:forresto/system-coffee@0.1.2", ["git
   window.addEventListener('touchstart', function(e) {
     return e.preventDefault();
   });
+  window.addEventListener('error', error);
   global.define = __define;
   return module.exports;
 });
